@@ -1,8 +1,8 @@
 <?php
 
-namespace webignition\Tests\GuzzleHttp\Exception\CurlException\Factory\IsCurlException;
+namespace webignition\Tests\GuzzleHttp\Exception\CurlException\Factory\FromConnectException\WithCurlException;
 
-class OperationTimeoutTest extends IsCurlExceptionTest {
+class OperationTimeoutTest extends WithCurlExceptionTest {
 
     protected function getConnectExceptionMessage() {
         return 'cURL error 28: Resolving timed out after 4 milliseconds';

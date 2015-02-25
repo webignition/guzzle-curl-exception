@@ -22,7 +22,15 @@ class Factory {
             (int)preg_replace('/[^0-9]/', '', $curlMessageParts[0]),
             $connectException
         );
+    }
 
+
+    /**
+     * @param ConnectException $connectException
+     * @return bool
+     */
+    public static function isCurlException(ConnectException $connectException) {
+        return self::isCurlErrorString($connectException->getMessage());
     }
 
 

@@ -1,19 +1,20 @@
 <?php
 
-namespace webignition\Tests\GuzzleHttp\Exception\CurlException\Factory\IsCurlException;
+namespace webignition\Tests\GuzzleHttp\Exception\CurlException\IsCurlException;
 
 use webignition\Tests\GuzzleHttp\Exception\CurlException\Factory\FactoryTest;
 
 abstract class IsCurlExceptionTest extends FactoryTest {
 
-    abstract protected function getExpectedCurlCode();
+    abstract protected function getExpectedIsCurlException();
 
     public function testIsCurlException() {
-        $this->assertInstanceOf('webignition\GuzzleHttp\Exception\CurlException\Exception', $this->curlException);
-    }
+        $factory = $this->getCurlExceptionFactory();
 
-    public function testCurlCode() {
-        $this->assertEquals($this->getExpectedCurlCode(), $this->curlException->getCode());
+        $this->assertEquals(
+            $this->getExpectedIsCurlException(),
+            $factory::isCurlException($this->getConnectException())
+        );
     }
 
 }
