@@ -1,4 +1,4 @@
-web-resource-model
-==================
+guzzle-curl-exception
+=====================
 
-PHP model of a web-based resource
+Translates a GuzzleHttp\Exception\ConnectException into a curl-specific exception where relevant
