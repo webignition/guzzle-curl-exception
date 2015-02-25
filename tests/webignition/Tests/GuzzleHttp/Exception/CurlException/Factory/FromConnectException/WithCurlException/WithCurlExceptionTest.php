@@ -13,7 +13,7 @@ abstract class WithCurlExceptionTest extends FromConnectExceptionTest {
     }
 
     public function testCurlCode() {
-        $this->assertEquals($this->getExpectedCurlCode(), $this->curlException->getCode());
+        $this->assertEquals($this->getExpectedCurlCode(), $this->curlException->getCurlCode());
     }
 
 }
