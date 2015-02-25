@@ -4,6 +4,7 @@ namespace webignition\GuzzleHttp\Exception\CurlException;
 
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\ConnectException;
+use GuzzleHttp\Message\Request as HttpRequest;
 
 class Exception extends RequestException {
 
@@ -12,8 +13,12 @@ class Exception extends RequestException {
      */
     private $curlCode = 0;
 
-    public function __construct($message, $code, ConnectException $connectException) {
-        parent::__construct($message, $connectException->getRequest());
+    public function __construct($message, $code, ConnectException $connectException = null) {
+        $request = (is_null($connectException))
+            ? new HttpRequest('GET', 'http://example.com/')
+            : $connectException->getRequest();
+
+        parent::__construct($message, $request);
         $this->curlCode = $code;
     }
 
