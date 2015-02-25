@@ -1,0 +1,29 @@
+{
+    "name": "webignition/guzzle-curl-exception",
+    "description": "Translates a GuzzleHttp\\Exception\\ConnectException into a curl-specific exception where relevant",
+    "keywords": ["guzzle", "curl", "exception"],
+    "homepage": "https://github.com/webignition/guzzle-curl-exception",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jon Cram",
+            "email": "jon@webignition.net"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "webignition\\Tests": "tests/",
+            "": "src/"
+        }
+    },  
+    "require": {
+        "php": ">=5.4.0",
+        "guzzlehttp/guzzle":">=5.2.0,<5.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },            
+    "minimum-stability":"dev",
+    "prefer-stable":true
+}
