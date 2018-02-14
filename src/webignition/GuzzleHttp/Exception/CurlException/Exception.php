@@ -6,14 +6,20 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Message\Request as HttpRequest;
 
-class Exception extends RequestException {
-
+class Exception extends RequestException
+{
     /**
      * @var int
      */
     private $curlCode = 0;
 
-    public function __construct($message, $code, ConnectException $connectException = null) {
+    /**
+     * @param string $message
+     * @param int $code
+     * @param ConnectException|null $connectException
+     */
+    public function __construct($message, $code, ConnectException $connectException = null)
+    {
         $request = (is_null($connectException))
             ? new HttpRequest('GET', 'http://example.com/')
             : $connectException->getRequest();
@@ -22,12 +28,11 @@ class Exception extends RequestException {
         $this->curlCode = $code;
     }
 
-
     /**
      * @return int
      */
-    public function getCurlCode() {
+    public function getCurlCode()
+    {
         return $this->curlCode;
     }
-
 }
