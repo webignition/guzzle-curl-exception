@@ -13,7 +13,7 @@ class Factory
      */
     public static function fromConnectException(ConnectException $connectException)
     {
-        if (!self::isCurlErrorString($connectException->getMessage())) {
+        if (!self::isCurlException($connectException)) {
             return null;
         }
 
