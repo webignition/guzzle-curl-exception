@@ -4,14 +4,16 @@ namespace webignition\GuzzleHttp\Exception\CurlException;
 
 use GuzzleHttp\Exception\ConnectException;
 
-class Factory {
-
+class Factory
+{
     /**
      * @param ConnectException $connectException
+     *
      * @return null|Exception
      */
-    public static function fromConnectException(ConnectException $connectException) {
-        if (!self::isCurlErrorString($connectException->getMessage())) {
+    public static function fromConnectException(ConnectException $connectException)
+    {
+        if (!self::isCurlException($connectException)) {
             return null;
         }
 
@@ -24,22 +26,23 @@ class Factory {
         );
     }
 
-
     /**
      * @param ConnectException $connectException
+     *
      * @return bool
      */
-    public static function isCurlException(ConnectException $connectException) {
+    public static function isCurlException(ConnectException $connectException)
+    {
         return self::isCurlErrorString($connectException->getMessage());
     }
 
-
     /**
      * @param $string
+     *
      * @return bool
      */
-    private static function isCurlErrorString($string) {
+    private static function isCurlErrorString($string)
+    {
         return preg_match('/^cURL error [0-9]+:/', $string) > 0;
     }
-
 }
