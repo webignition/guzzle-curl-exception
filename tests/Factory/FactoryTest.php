@@ -4,7 +4,7 @@ namespace webignition\Tests\GuzzleHttp\Exception\CurlException\Factory;
 
 use webignition\GuzzleHttp\Exception\CurlException\Exception;
 use GuzzleHttp\Exception\ConnectException;
-use GuzzleHttp\Message\Request;
+use GuzzleHttp\Psr7\Request;
 use webignition\GuzzleHttp\Exception\CurlException\Factory;
 
 class FactoryTest extends \PHPUnit_Framework_TestCase

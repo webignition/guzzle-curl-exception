@@ -4,7 +4,7 @@ namespace webignition\GuzzleHttp\Exception\CurlException;
 
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\ConnectException;
-use GuzzleHttp\Message\Request as HttpRequest;
+use GuzzleHttp\Psr7\Request as HttpRequest;
 
 class Exception extends RequestException
 {
